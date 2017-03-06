@@ -22,6 +22,15 @@ describe Bank do
     end
   end
 
+  describe '#withdraw' do
+    context 'when making withdrawls' do
+      it 'decreases the balance by deposited amount' do
+        bank.deposit(20)
+        bank.withdraw(10)
+        expect(bank.balance).to eq 10
+      end
+    end
+  end
 
 
 end
