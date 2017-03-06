@@ -15,6 +15,7 @@ class Bank
 
   def withdraw(amount)
     raise "Only positive amount can be withdrawn!" if amount < 0
+    raise "Withdrawl amount exceeds balance" if amount > @balance
     @balance -=amount
   end
 

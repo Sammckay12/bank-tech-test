@@ -2,7 +2,7 @@ require 'bank'
 
 describe Bank do
 
-  let(:bank) {described_class.new}
+  let(:bank) { described_class.new }
 
   describe '#balance' do
     context 'upon initialization' do
@@ -34,6 +34,9 @@ describe Bank do
       end
       it 'raises error when trying to withdraw negative amount' do
         expect{ bank.withdraw(-5) }.to raise_error("Only positive amount can be withdrawn!")
+      end
+      it 'raises error when trying to withdraw more than your blance' do
+        expect{ bank.withdraw(100) }.to raise_error("Withdrawl amount exceeds balance")
       end
     end
   end
