@@ -7,5 +7,4 @@ class Transaction
     @amount = amount
     @state = state
   end
-
 end

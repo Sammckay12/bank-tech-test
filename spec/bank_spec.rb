@@ -4,6 +4,11 @@ describe Bank do
 
   let(:bank) { described_class.new }
 
+  it 'initialises with a TransactionHistory object' do
+    expect(bank).to respond_to(:transaction_history)
+
+  end
+
   describe '#balance' do
     context 'upon initialization' do
       it 'balance is 0' do

@@ -18,11 +18,4 @@ describe Transaction do
 
   end
 
-
-
-
-
-
-
-
 end
