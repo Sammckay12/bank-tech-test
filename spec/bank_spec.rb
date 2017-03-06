@@ -4,7 +4,24 @@ describe Bank do
 
   let(:bank) {described_class.new}
 
-  it 'inititialises with balance 0' do
-    expect(bank.balance).to eq 0
+  describe '#balance' do
+    context 'upon initialization' do
+      it 'balance is 0' do
+          expect(bank.balance).to eq 0
+      end
+    end
   end
+
+
+  describe '#deposit' do
+    context 'when making deposits' do
+      it 'increases the balance by deposited amount' do
+          bank.deposit(10)
+          expect(bank.balance).to eq 10
+      end
+    end
+  end
+
+
+
 end
