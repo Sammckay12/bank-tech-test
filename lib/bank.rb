@@ -9,10 +9,12 @@ class Bank
   end
 
   def deposit(amount)
+    raise "Only positive amount can be deposited!" if amount < 0
     @balance += amount
   end
 
   def withdraw(amount)
+    raise "Only positive amount can be withdrawn!" if amount < 0
     @balance -=amount
   end
 

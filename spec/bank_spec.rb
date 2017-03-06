@@ -19,6 +19,9 @@ describe Bank do
           bank.deposit(10)
           expect(bank.balance).to eq 10
       end
+      it 'raises error when trying to deposit negative amount' do
+        expect{ bank.deposit(-5) }.to raise_error("Only positive amount can be deposited!")
+      end
     end
   end
 
@@ -28,6 +31,9 @@ describe Bank do
         bank.deposit(20)
         bank.withdraw(10)
         expect(bank.balance).to eq 10
+      end
+      it 'raises error when trying to withdraw negative amount' do
+        expect{ bank.withdraw(-5) }.to raise_error("Only positive amount can be withdrawn!")
       end
     end
   end
