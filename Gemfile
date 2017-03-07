@@ -8,4 +8,5 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'rake'
   gem 'pry'
+  gem 'rake'
 end
