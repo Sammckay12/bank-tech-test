@@ -1,5 +1,6 @@
 require_relative 'transaction'
 require_relative 'transaction_history'
+require_relative 'statement_printer'
 
 class Bank
 
@@ -26,7 +27,8 @@ class Bank
   end
 
   def statement
-    @transaction_history.show_statement
+    @statement = StatementPrinter.new
+    @statement.show_statement(@transaction_history.statement)
   end
 
   private
