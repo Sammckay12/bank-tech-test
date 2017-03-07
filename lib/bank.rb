@@ -1,7 +1,6 @@
 require_relative 'transaction'
 require_relative 'transaction_history'
 
-
 class Bank
 
   DEFAULT_BALANCE = 0
@@ -16,25 +15,25 @@ class Bank
   def deposit(amount)
     raise "Only positive amount can be deposited!" if amount < 0
     @balance += amount
-    create_transaction(amount, 'credit')
+    create_transaction(credit: amount)
   end
 
   def withdraw(amount)
     raise "Only positive amount can be withdrawn!" if amount < 0
     raise "Withdrawl amount exceeds balance" if amount > @balance
     @balance -=amount
-    create_transaction(amount, 'debit')
+    create_transaction(debit: amount)
   end
 
   def statement
-    @transaction_history.statement
+    @transaction_history.show_statement
   end
 
   private
 
-  def create_transaction(amount, state)
-    transaction = Transaction.new(amount: amount, state: state)
-    @transaction_history.statement << transaction
+  def create_transaction(credit: nil, debit: nil)
+    transaction = Transaction.new(credit: credit, debit: debit, balance: @balance)
+    @transaction_history.statement << transaction.line_item
   end
 
 
